@@ -11,11 +11,14 @@ if(isset($_GET['page'])){
     $page = 'home';
 }
 
+
 ob_start();
 if($page === 'home'){
     require '../pages/home.php';
-} elseif($page === 'single') {
+} elseif($page === 'article') {
     require '../pages/single.php';
+} elseif($page === 'categorie') {
+    require '../pages/categorie.php';
 }
 
 $content = ob_get_clean();

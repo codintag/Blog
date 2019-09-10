@@ -1,2 +1,25 @@
-<h2>Single</h2>
-<p><a href="index.php">Homee</a></p>
+
+<?php
+
+use App\App;
+use App\Table\Article;
+use App\Table\Categorie;
+
+$post = Article::find($_GET['id']);
+
+if($post === false){
+
+    App:notFound();
+}
+
+App::setTitle($post->titre);
+
+
+
+?>
+
+<h2><?= $post->titre; ?></h2>
+
+<p><em><?= $post->categorie; ?></em></p>
+
+<p><?= $post->contenu ?></p>
